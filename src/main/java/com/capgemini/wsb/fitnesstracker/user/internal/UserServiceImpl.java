@@ -27,7 +27,6 @@ class UserServiceImpl implements UserService, UserProvider {
         return userRepository.save(user);
     }
 
-
     @Override
     public void deleteUser(Long userId) {
         log.info("Deleting User {}", userId);
@@ -39,6 +38,7 @@ class UserServiceImpl implements UserService, UserProvider {
             log.info("User {} not found", userId);
         }
     }
+
 
     @Override
     public Optional<User> getUser(final Long userId) {
@@ -54,8 +54,10 @@ class UserServiceImpl implements UserService, UserProvider {
     public List<User> findAllUsers() {
         return userRepository.findAll();
     }
+
     @Override
     public List<User> findUsersOlderThan(LocalDate date) {
         return userRepository.findByBirthdateLessThanEqual(date);
     }
+
 }
