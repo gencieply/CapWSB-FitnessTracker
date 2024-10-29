@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.io.Console;
 import java.util.List;
 import java.util.Optional;
 
@@ -40,5 +41,16 @@ class UserServiceImpl implements UserService, UserProvider {
     public List<User> findAllUsers() {
         return userRepository.findAll();
     }
+
+    @Override
+    public void deluser(long userid){
+        log.info("del user on id",userid);
+        Optional<User> user = userRepository.findById(userid);
+        if(user.isPresent()){
+
+        }
+    }
+
+
 
 }
